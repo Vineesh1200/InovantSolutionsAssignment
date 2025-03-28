@@ -78,6 +78,14 @@
     border: none;
     outline: none;
     margin-bottom: 1.40rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+::ng-deep .ant-spin-dot i {
+    background-color: white !important;
 }
 
 .orButton {

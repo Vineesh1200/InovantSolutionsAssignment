@@ -8,7 +8,7 @@ import { EyeInvisibleOutline } from '@ant-design/icons-angular/icons';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 import { LoginInterface } from '../../interfaces/userInterface';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; import { NzSpinModule } from 'ng-zorro-antd/spin';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,8 @@ import { Router } from '@angular/router';
     NzInputModule,
     NzSelectModule,
     NzIconModule,
-    CommonModule
+    CommonModule,
+    NzSpinModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
@@ -28,6 +29,7 @@ export class LoginComponent {
 
   validateForm: FormGroup;
   passwordVisible: boolean = false;
+  loading: boolean = false;
 
   private fb = inject(FormBuilder);
   private userService = inject(UserService);
@@ -44,6 +46,7 @@ export class LoginComponent {
 
   submitForm(): void {
     if (this.validateForm.valid) {
+      this.loading = true;
       const formData = {
         ...this.validateForm.value,
         phoneCode: "+91",
@@ -52,6 +55,7 @@ export class LoginComponent {
         phoneNumber: "3521356123",
       }
       this.userService.login(formData).subscribe((response: LoginInterface) => {
+        this.loading = false;
         this.router.navigate(['profile'], { state: { userData: response } })
       })
     } else {
