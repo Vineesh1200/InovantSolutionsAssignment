@@ -1,0 +1,128 @@
+.loginContainer {
+    background-image: url("https://thekland.com/assets/images/login-background.png");
+    height: 100dvh;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.miniContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: rgb(255 255 255);
+    width: 100%;
+    max-width: 600px;
+}
+
+.backImage {
+    position: absolute;
+    top: 1.25rem;
+    inset-inline-start: 1.25rem;
+}
+
+.backImage img {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.logoImage {
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoImage img {
+    width: 6.5rem;
+    cursor: pointer;
+}
+
+.miniContent>h1 {
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.ant-form .forgotPassword {
+    text-align: right;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    margin-top: .5rem;
+    margin-bottom: 1.25rem;
+    cursor: pointer;
+}
+
+.ant-form input {
+    background-color: rgb(248 248 248);
+}
+
+.ant-form button {
+    width: 100%;
+    cursor: pointer;
+    border-radius: .375rem;
+    background-color: rgb(26 144 139);
+    padding: .75rem 1rem;
+    text-align: center;
+    font-family: Roboto-Medium;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    text-transform: capitalize;
+    color: rgb(255 255 255);
+    border: none;
+    outline: none;
+    margin-bottom: 1.40rem;
+}
+
+.orButton {
+    background-color: rgb(209 213 219);
+    height: 1px;
+    position: relative;
+    margin-bottom: 1.40rem;
+}
+
+.orButton h4 {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    color: rgb(107 114 128);
+    background-color: #FFF;
+    padding-inline: 5px;
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+.loginWithOTP {
+    width: 100%;
+    cursor: pointer;
+    border-radius: .375rem;
+    border: 1px solid rgb(26 144 139);
+    background-color: rgb(255 255 255);
+    padding: .75rem 1rem;
+    text-align: center;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    text-transform: capitalize;
+    color: #1A908B;
+    margin-bottom: 1.25rem;
+}
+
+.miniContent>h6 {
+    color: rgb(90 90 90);
+    font-size: .875rem;
+    line-height: 1.25rem;
+    text-align: center;
+}
+
+.miniContent>h6>span {
+    color: rgb(26 144 139);
+    cursor: pointer;
+}

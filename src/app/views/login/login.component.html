@@ -1,0 +1,48 @@
+<div class="loginContainer">
+    <div class="miniContent">
+        <div class="backImage">
+            <img src="	https://thekland.com/assets/icons/back-page.svg" alt="">
+        </div>
+        <div class="logoImage">
+            <img src="https://thekland.com/assets/images/logo.png" alt="">
+        </div>
+        <h1>SIGN IN WITH PASSWORD OR OTP</h1>
+
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+            <nz-form-item>
+                <nz-form-control [nzValidateStatus]="validateForm.controls['email']" [nzErrorTip]="emailErrorTpl">
+                    <nz-input-group nzPrefixIcon="user">
+                        <input formControlName="email" nz-input placeholder="Email" type="email"/>
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+
+            <ng-template #emailErrorTpl let-control>
+                <span *ngIf="control.hasError('required')">Please input your email!</span>
+                <span *ngIf="control.hasError('email')">Please enter a valid email!</span>
+            </ng-template>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your password!">
+                    <nz-input-group [nzSuffix]="suffixTemplate">
+                        <input nz-input [type]="passwordVisible ? 'text' : 'password'" id="password"
+                            formControlName="password" placeholder="Password" />
+                    </nz-input-group>
+                </nz-form-control>
+                <ng-template #suffixTemplate>
+                    <span nz-icon class="ant-input-password-icon" [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                        (click)="passwordVisible = !passwordVisible"></span>
+                </ng-template>
+            </nz-form-item>
+            <h5 class="forgotPassword">Forgot password?</h5>
+            <button nz-button>Login</button>
+        </form>
+
+        <div class="orButton">
+            <h4>Or</h4>
+        </div>
+
+        <button class="loginWithOTP" nz-button>Login With OTP</button>
+
+        <h6>Don't have an account? <span>Create Account</span></h6>
+    </div>
+</div>

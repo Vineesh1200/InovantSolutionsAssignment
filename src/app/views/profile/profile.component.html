@@ -1,0 +1,226 @@
+<div class="profileContainer">
+    <div class="headContainer">
+        <div class="logo">
+            <a href="#"><img src="https://thekland.com/assets/images/logo.png" alt="Logo"></a>
+        </div>
+        <div class="menu">
+            <p class="language">العربية</p>
+            <div class="menu-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bgImage">
+        <img src="https://thekland.com/assets/images/my-account-bg.png" alt="">
+    </div>
+
+    <div class="miniContainer">
+        <h2 class="heading">MY ACCOUNT</h2>
+        <p class="subtext">Manage Your Fun: View Tickets, Book Zones, and Track Your Adventure!</p>
+        <div class="accountBox">
+            <img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/452/external-user-interface-kiranshastry-solid-kiranshastry-1.png"
+                alt="User Icon">
+            <div class="accountInfo">
+                <p class="name">{{validateForm.get('firstName')?.value}} {{validateForm.get('lastName')?.value}}</p>
+                <p class="phone">{{validateForm.get('phoneCode')?.value}} {{validateForm.get('phoneNumber')?.value}}</p>
+                <p class="email">{{validateForm.get('email')?.value}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="subContainer">
+        <div class="sidebar">
+            <ul class="items">
+                <li><a href="#"><img src="https://thekland.com/assets/icons/profile-user.svg"
+                            alt=""> Edit
+                        Profile</a></li>
+                <li><a href="#"><img src="https://thekland.com/assets/icons/bookings.svg"
+                            alt=""> My Bookings</a>
+                </li>
+                <li><a href="#"><img src="https://thekland.com/assets/icons/wallet.svg" alt="">
+                        Wallet</a></li>
+                <li><a href="#"><img src="https://thekland.com/assets/icons/faq-icon.svg" alt="">
+                        FAQS</a></li>
+                <li><a href="#"><img src="https://thekland.com/assets/icons/contact-us-icon.svg"
+                            alt=""> Contact
+                        Us</a></li>
+                <li><a href="#"><img src="https://thekland.com/assets/icons/Deactivate_Account icon.svg" alt=""> Delete
+                        Account</a></li>
+                <li class="logout"><a href="#"><img src="https://thekland.com/assets/icons/logout-icon.svg" alt="">
+                        Logout</a></li>
+            </ul>
+        </div>
+        <div class="profileInformation">
+            <h1>PERSONAL INFORMATION</h1>
+            <div class="profilePicContainer">
+                <div class="profilePicture">
+                    <img id="profileImage"
+                        src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/452/external-user-interface-kiranshastry-solid-kiranshastry-1.png"
+                        alt="Profile Picture">
+                    <label for="fileInputProfile" class="uploadIcon">
+                        <img src="https://thekland.com/assets/icons/image-edit.svg" alt="Edit">
+                    </label>
+                    <input type="file" id="fileInputProfile" class="hidden" onchange="loadProfileImage(event)">
+                </div>
+                <div class="profileDetails">
+                    <h2>{{validateForm.get('firstName')?.value}} {{validateForm.get('lastName')?.value}}</h2>
+                    <p>{{validateForm.get('email')?.value}}</p>
+                </div>
+            </div>
+
+            <form nz-form [formGroup]="validateForm" (ngSubmit)="onSubmit()" class="form-container">
+                <nz-row [nzGutter]="16">
+                    <nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label nzSpan="24">First Name</nz-form-label>
+                            <nz-form-control nzSpan="24">
+                                <input nz-input formControlName="firstName" placeholder="Enter your first name" />
+                            </nz-form-control>
+                        </nz-form-item>
+                    </nz-col>
+
+                    <nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label nzSpan="24">Last Name</nz-form-label>
+                            <nz-form-control nzSpan="24">
+                                <input nz-input formControlName="lastName" placeholder="Enter your last name" />
+                            </nz-form-control>
+                        </nz-form-item>
+                    </nz-col>
+                </nz-row>
+
+                <nz-row [nzGutter]="16">
+                    <nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label nzSpan="24">Email Address</nz-form-label>
+                            <nz-form-control nzSpan="24">
+                                <input nz-input type="email" formControlName="email" placeholder="Enter your email" />
+                            </nz-form-control>
+                        </nz-form-item>
+                    </nz-col>
+
+                    <nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label nzSpan="24">Phone Number</nz-form-label>
+                            <nz-form-control nzSpan="24">
+                                <nz-input-group [nzAddOnBefore]="prefixSelector">
+                                    <input nz-input type="tel" formControlName="phoneNumber"
+                                        placeholder="Enter your phone number" />
+                                </nz-input-group>
+                                <ng-template #prefixSelector>
+                                    <nz-select formControlName="phoneCode">
+                                        <nz-option nzLabel="+91" nzValue="+91"></nz-option>
+                                        <nz-option nzLabel="+965" nzValue="+965"></nz-option>
+                                        <nz-option nzLabel="+1" nzValue="+1"></nz-option>
+                                    </nz-select>
+                                </ng-template>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </nz-col>
+                </nz-row>
+
+                <nz-row [nzGutter]="16">
+                    <nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label nzSpan="24">Old Password</nz-form-label>
+                            <nz-form-control nzSpan="24">
+                                <nz-input-group [nzSuffix]="suffixIcon1">
+                                    <input nz-input [type]="passwordVisible1 ? 'text' : 'password'"
+                                        formControlName="password" placeholder="Enter your current password" />
+                                </nz-input-group>
+                                <ng-template #suffixIcon1>
+                                    <i nz-icon [nzType]="passwordVisible1 ? 'eye-invisible' : 'eye'"
+                                        (click)="passwordVisible1 = !passwordVisible1"></i>
+                                </ng-template>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </nz-col>
+
+                    <nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label nzSpan="24">New Password</nz-form-label>
+                            <nz-form-control nzSpan="24">
+                                <nz-input-group [nzSuffix]="suffixIcon2">
+                                    <input nz-input [type]="passwordVisible2 ? 'text' : 'password'"
+                                        formControlName="new_password" placeholder="Enter your new password" />
+                                </nz-input-group>
+                                <ng-template #suffixIcon2>
+                                    <i nz-icon [nzType]="passwordVisible2 ? 'eye-invisible' : 'eye'"
+                                        (click)="passwordVisible2 = !passwordVisible2"></i>
+                                </ng-template>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </nz-col>
+                </nz-row>
+
+                <nz-row [nzGutter]="16">
+                    <nz-col [nzLg]="12" [nzMd]="24" [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label nzSpan="24">Confirm New Password</nz-form-label>
+                            <nz-form-control nzSpan="24">
+                                <nz-input-group [nzSuffix]="suffixIcon3">
+                                    <input nz-input [type]="passwordVisible3 ? 'text' : 'password'"
+                                        formControlName="confirm_password" placeholder="Confirm your new password" />
+                                </nz-input-group>
+                                <ng-template #suffixIcon3>
+                                    <i nz-icon [nzType]="passwordVisible3 ? 'eye-invisible' : 'eye'"
+                                        (click)="passwordVisible3 = !passwordVisible3"></i>
+                                </ng-template>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </nz-col>
+                </nz-row>
+
+                <nz-row>
+                    <nz-col [nzSpan]="24">
+                        <nz-form-item>
+                            <button nz-button class="save-button">Save</button>
+                        </nz-form-item>
+                    </nz-col>
+                </nz-row>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footerContainer">
+        <div class="footer-container">
+            <div class="quickLinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li>Press</li>
+                    <li><a href="/en/faq">FAQS</a></li>
+                    <li><a href="/en/contact-us">Contact us</a></li>
+                    <li>About us</li>
+                    <li>Join the team</li>
+                    <li>Terms & Conditions</li>
+                </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="footerBottom">
+                <div class="privacy">
+                    <ul>
+                        <li><a href="/en/privacy-policy">PRIVACY POLICY</a></li>
+                    </ul>
+                    <p>Copyright © 2024 K-Land. <br/>All Rights Reserved.</p>
+                </div>
+
+                <div class="socialMedia">
+                    <p>FOLLOW US</p>
+                    <a href="https://www.instagram.com/visitkland/" target="_blank">
+                        <img src="https://thekland.com/assets/icons/insta-icon.svg" alt="Instagram">
+                    </a>
+                </div>
+
+                <div class="presentedBy">
+                    <p>PRESENTED BY</p>
+                    <img src="https://thekland.com/assets/images/logo.png" alt="Logo">
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
